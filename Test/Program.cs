@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
+using DataAccess.Concrete.EntityFrameworkCore;
 using Entities.Concrete;
 using System;
 
@@ -10,7 +11,8 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            CarAdd();
+            //CarAdd();
+            //BrandAdd();
 
         }
 
@@ -25,6 +27,14 @@ namespace Test
 
             ICarService carService = new CarManager(new EfCarDal());
             carService.Add(car);
+        }
+        private static void BrandAdd()
+        {
+            Brand brand = new Brand();
+   
+            IBrandService brandService = new BrandManager(new EfBrandDal());
+            brandService.Delete(brand);
+          
         }
     }
 }
