@@ -28,7 +28,7 @@ namespace Core.DataAccess.Concrete
             using (TContext context = new TContext())
             {
                 var deleteEntity = context.Entry(entity);
-                deleteEntity.State = EntityState.Added;
+                deleteEntity.State = EntityState.Deleted;
                 context.SaveChanges();
             }
             

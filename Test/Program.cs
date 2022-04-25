@@ -13,12 +13,15 @@ namespace Test
         {
             //CarAdd();
             //BrandAdd();
+            //CarDelete();
+            GetBrands();            
 
         }
 
-        private static void CarAdd()
+        public static void CarAdd()
         {
             Car car = new Car();
+            
             car.ColorId = 1;
             car.BrandId = 1;
             car.ModelYear = 2000;
@@ -35,6 +38,27 @@ namespace Test
             IBrandService brandService = new BrandManager(new EfBrandDal());
             brandService.Delete(brand);
           
+        }
+        private static void CarDelete()
+        {
+            Car car = new Car();
+            car.CarId = 1;
+            car.ColorId = 1;
+            car.BrandId = 1;
+            car.ModelYear = 2000;
+            car.DailyPrice = 150;
+            car.Description = "Deneme";
+            ICarService carService = new CarManager(new EfCarDal());
+            carService.Delete(car);
+        }
+        private static void GetBrands()
+        {
+            IBrandService brandService = new BrandManager(new EfBrandDal());
+            foreach (var item in brandService.GetAll())
+            {
+                Console.WriteLine(item.Name);
+            }
+            
         }
     }
 }
