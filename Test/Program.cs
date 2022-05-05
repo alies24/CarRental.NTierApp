@@ -14,8 +14,8 @@ namespace Test
             //CarAdd();
             //BrandAdd();
             //CarDelete();
-            GetBrands();            
-
+            //GetBrands();            
+            //GetCustomer(1);
         }
 
         public static void CarAdd()
@@ -54,10 +54,17 @@ namespace Test
         private static void GetBrands()
         {
             IBrandService brandService = new BrandManager(new EfBrandDal());
-            foreach (var item in brandService.GetAll())
+            foreach (var item in brandService.GetAll().Data)
             {
                 Console.WriteLine(item.Name);
             }
+            
+        }
+        private static void GetCustomer(int id)
+        {
+            ICustomerService customerService = new CustomerManager(new EfCustomerDal());
+            var result = customerService.GetCustomer(id);
+            Console.WriteLine(result.Data.CompanyName);
             
         }
     }
