@@ -14,7 +14,7 @@ namespace Business.Concrete
 {
     public class CustomerManager : ICustomerService
     {
-        ICustomerDal _customerDal;
+        private ICustomerDal _customerDal;
         public CustomerManager(ICustomerDal customerDal)
         {
             _customerDal = customerDal;
@@ -37,7 +37,7 @@ namespace Business.Concrete
             return getCustomer;
         }
 
-        public IDataResult<List<Customer>> GetAll()
+        public IDataResult<List<Customer>> GetAllCustomers()
         {
             var getAll = new SuccessDataResult<List<Customer>>(_customerDal.GetAll());
             return getAll;

@@ -11,8 +11,8 @@ namespace Business.Abstract
     public interface IBusinessModelRepository<T>
         where T: class, new()
     {
-        IDataResult<List<T>> GetAll(Expression<Func<T, bool>> filter = null);
-        IDataResult<T> Get(Expression<Func<T, bool>> filter, int id);
+        IDataResult<List<T>> GetAll();
+        IDataResult<T> Get(int id);
         IResult Add(T entity);
         IResult Update(T entity);
         IResult Delete(T entity);

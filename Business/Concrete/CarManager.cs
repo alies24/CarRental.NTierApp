@@ -13,7 +13,7 @@ namespace Business.Concrete
 {
     public class CarManager : ICarService
     {
-        ICarDal _carDal;
+        private ICarDal _carDal;
         public CarManager(ICarDal carDal)
         {
             _carDal = carDal;
@@ -40,7 +40,7 @@ namespace Business.Concrete
             
         }
 
-        public IDataResult<List<Car>> GetAll()
+        public IDataResult<List<Car>> GetAllCars()
         {
            var getAll = new SuccessDataResult<List<Car>>(_carDal.GetAll());
             return getAll;
@@ -53,7 +53,7 @@ namespace Business.Concrete
             return getCar;
         }
 
-        public IDataResult<List<CarDetailsDto>> GetCarDetails()
+        public IDataResult<List<CarDetailsDto>> GetCarsDetails()
         {
             var getCarDetails = new SuccessDataResult<List<CarDetailsDto>>(_carDal.GetCarDetails());
             return getCarDetails;

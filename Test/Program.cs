@@ -14,7 +14,7 @@ namespace Test
             //CarAdd();
             //BrandAdd();
             //CarDelete();
-            //GetBrands();            
+            GetBrands();            
             //GetCustomer(1);
         }
 
@@ -57,6 +57,7 @@ namespace Test
             foreach (var item in brandService.GetAll().Data)
             {
                 Console.WriteLine(item.Name);
+
             }
             
         }

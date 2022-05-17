@@ -29,7 +29,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        public IDataResult<List<Brand>> GetAll()
+        public IDataResult<List<Brand>> GetAllBrands()
         {
             var getAll = new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
             return getAll;
