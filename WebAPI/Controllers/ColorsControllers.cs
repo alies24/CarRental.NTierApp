@@ -9,7 +9,7 @@ namespace WebAPI.Controllers
     [ApiController]
     public class ColorsController : ControllerBase
     {
-        IColorService _colorService;
+        private IColorService _colorService;
         public ColorsController(IColorService colorService)
         {
             _colorService = colorService;

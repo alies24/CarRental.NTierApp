@@ -18,15 +18,19 @@ namespace Business.Concrete
     public class CarManager : ICarService
     {
         private ICarDal _carDal;
+        
         public CarManager(ICarDal carDal)
         {
             _carDal = carDal;
+            
+
         }
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
             _carDal.Add(car);
             return new SuccessResult();
+            
 
         }
 
@@ -79,5 +83,7 @@ namespace Business.Concrete
             _carDal.Update(car);
             return new SuccessResult();
         }
+
+    
     }
 }

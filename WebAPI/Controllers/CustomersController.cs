@@ -9,7 +9,7 @@ namespace WebAPI.Controllers
     [ApiController]
     public class CustomersController : ControllerBase
     {
-        ICustomerService _customerService;
+        private ICustomerService _customerService;
         public CustomersController(ICustomerService customerService)
         {
             _customerService = customerService;
