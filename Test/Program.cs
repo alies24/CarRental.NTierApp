@@ -54,7 +54,7 @@ namespace Test
         private static void GetBrands()
         {
             IBrandService brandService = new BrandManager(new EfBrandDal());
-            foreach (var item in brandService.GetAll().Data)
+            foreach (var item in brandService.GetAllBrands().Data)
             {
                 Console.WriteLine(item.Name);
 
