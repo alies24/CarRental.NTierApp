@@ -23,7 +23,7 @@ namespace DataAccess.Concrete.EntityFrameworkCore
                            u.UserId
                            select new CustomerDetailsDto
                            {
-                               Id = c.Id,
+                               Id = c.CustomerId,
                                CompanyName = c.CompanyName,
                                Email = u.Email,
                                FirstName = u.FirstName,

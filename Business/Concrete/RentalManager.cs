@@ -44,7 +44,7 @@ namespace Business.Concrete
 
         public IDataResult<Rental> GetRental(int rentalId)
         {
-            var getRental = new SuccessDataResult<Rental>(_rentalDal.Get(c => c.Id == rentalId));
+            var getRental = new SuccessDataResult<Rental>(_rentalDal.Get(c => c.RentalId == rentalId));
             return getRental;
         }
 

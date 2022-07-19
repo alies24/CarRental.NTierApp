@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-   public interface IBrandService
+    public interface IBrandService
     {
         IResult Add(Brand brand);
         IResult Delete(Brand brand);

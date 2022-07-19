@@ -1,7 +1,9 @@
 ﻿using Business.Abstract;
 using Business.FluentValidation;
 using Core.Aspects.AutofacAspect.Validation;
+using Core.Aspects.JWTAspect;
 using Core.CrossCuttingConcerns.Validation.FluentValidation;
+using Core.Utilities.BusinessRules;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -25,12 +27,19 @@ namespace Business.Concrete
             
 
         }
+        [SecuredOperation("admin")]
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
+            var result = BusinessRules.Run(CheckIfBrandLimit(car.BrandId));
+            if (result != null)
+            {
+                return result;
+                
+            }
             _carDal.Add(car);
             return new SuccessResult();
-            
+
 
         }
 
@@ -83,6 +92,16 @@ namespace Business.Concrete
             _carDal.Update(car);
             return new SuccessResult();
         }
+        private IResult CheckIfBrandLimit(int brandId)
+        {
+            var check = _carDal.GetAll(c => c.BrandId == brandId).Count;
+            if (check>=100)
+            {
+                return new ErrorResult("Bir markada en fazla 100 araba olabilir.");
+            }
+            return new SuccessResult();
+        }
+
 
     
     }

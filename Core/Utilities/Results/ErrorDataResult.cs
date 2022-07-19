@@ -16,7 +16,7 @@ namespace Core.Utilities.Results
         {
 
         }
-        public ErrorDataResult() : base(default, false)
+        public ErrorDataResult(string message) : base(default, false)
         {
 
         }
