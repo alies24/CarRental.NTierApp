@@ -1,4 +1,3 @@
-**Used Technologies
 .NET5
 ASP.NET Core Web API
 EntityFramework Core
