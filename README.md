@@ -26,3 +26,5 @@ Car rental application in accordance with SOLID principles.
 - AOP 
 - FluentValidation
 - JWT Auth.
+- Microsoft Cache Management
+
