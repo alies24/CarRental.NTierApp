@@ -22,7 +22,7 @@ namespace Business.Concrete
                 _carImageDal = carImageDal;
             }
 
-            //[ValidationAspect(typeof(CarImageValidator))]
+         
             public IResult Add(IFormFile file, CarImages carImage)
             {
                 var imageLimit = _carImageDal.GetAll(c => c.CarId == carImage.CarId).Count;
@@ -76,7 +76,7 @@ namespace Business.Concrete
                 return new SuccessDataResult<List<CarImages>>(CarImageCheck(carId).Data);
             }
 
-            //   [ValidationAspect(typeof(CarImageValidator))]
+           
             public IResult Update(IFormFile file, CarImages carImage)
             {
                 var image = _carImageDal.Get(c => c.ImageId == carImage.ImageId);
@@ -94,7 +94,7 @@ namespace Business.Concrete
                 return new SuccessResult();
             }
 
-            //BUSINESS RULES
+         
             private IDataResult<List<CarImages>> CarImageCheck(int carId)
             {
                 try

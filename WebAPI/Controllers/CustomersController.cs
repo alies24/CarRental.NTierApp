@@ -14,7 +14,7 @@ namespace WebAPI.Controllers
         {
             _customerService = customerService;
         }
-        [HttpPost("addCustomer")]
+        [HttpPost("add")]
         public IActionResult Add(Customer customer)
         {
             var addCustomer = _customerService.Add(customer);
@@ -27,7 +27,7 @@ namespace WebAPI.Controllers
                 return BadRequest(addCustomer.Message);
             }
         }
-        [HttpDelete("deleteCustomer")]
+        [HttpDelete("delete")]
         public IActionResult Delete(Customer customer)
         {
             var deleteCustomer = _customerService.Delete(customer);
@@ -40,7 +40,7 @@ namespace WebAPI.Controllers
                 return BadRequest(deleteCustomer.Message);
             }
         }
-        [HttpPut("updateCustomer")]
+        [HttpPut("update")]
         public IActionResult Update(Customer customer)
         {
             var updateCustomer = _customerService.Update(customer);
@@ -53,7 +53,7 @@ namespace WebAPI.Controllers
                 return BadRequest(updateCustomer.Message);
             }
         }
-        [HttpGet("getCustomer")]
+        [HttpGet("get")]
         public IActionResult GetCustomer(int customerId)
         {
             var getCustomer = _customerService.GetCustomer(customerId);
@@ -66,7 +66,7 @@ namespace WebAPI.Controllers
                 return BadRequest(getCustomer.Message);
             }
         }
-        [HttpGet("getAllCustomers")]
+        [HttpGet("getAll")]
         public IActionResult GetAllCustomers()
         {
             var getAllCustomers= _customerService.GetAllCustomers();
@@ -79,7 +79,7 @@ namespace WebAPI.Controllers
                 return BadRequest(getAllCustomers.Message);
             }
         }
-        [HttpGet("getCustomersDetails")]
+        [HttpGet("getCustomerDetails")]
         public IActionResult GetCustomerDetails()
         {
             var getCustomerDetails = _customerService.GetCustomerDetails();

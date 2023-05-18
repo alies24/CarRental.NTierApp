@@ -32,7 +32,7 @@ namespace Core.DataAccess.Concrete
                 deleteEntity.State = EntityState.Deleted;
                 context.SaveChanges();
             }
-            
+
         }
 
         public TEntity Get(Expression<Func<TEntity, bool>> filter)

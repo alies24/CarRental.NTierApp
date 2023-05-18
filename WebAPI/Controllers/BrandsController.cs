@@ -15,7 +15,7 @@ namespace WebAPI.Controllers
             _brandService = brandService;
         }
 
-        [HttpGet("getAllBrands")]
+        [HttpGet("getAll")]
         public IActionResult GetAllBrands()
         {
             var getAllBrands = _brandService.GetAllBrands();
@@ -28,7 +28,7 @@ namespace WebAPI.Controllers
                 return BadRequest(getAllBrands.Message);
             }
         }
-        [HttpGet("getBrand")]
+        [HttpGet("get")]
         public IActionResult GetBrand(int brandId)
         {
             var getBrand = _brandService.GetBrand(brandId);
@@ -41,7 +41,7 @@ namespace WebAPI.Controllers
                 return BadRequest(getBrand.Message);
             }
         }
-        [HttpPost("addBrand")]
+        [HttpPost("add")]
         public IActionResult Add(Brand brand)
         {
             var addBrand = _brandService.Add(brand);
@@ -54,7 +54,7 @@ namespace WebAPI.Controllers
                 return BadRequest(addBrand.Message);
             }
         }
-        [HttpPut("updateBrand")]
+        [HttpPut("update")]
         public IActionResult Update(Brand brand)
         {
             var updateBrand = _brandService.Update(brand);
@@ -67,7 +67,7 @@ namespace WebAPI.Controllers
                 return BadRequest(updateBrand.Message);
             }
         }
-         [HttpDelete("deleteBrand")]
+         [HttpDelete("delete")]
          public IActionResult Delete(Brand brand)
         {
             var deleteBrand = _brandService.Delete(brand);

@@ -94,10 +94,10 @@ namespace Core.Utilities.Helpers.FileHelper
         }
         private static void CreateImageFile(string directory, IFormFile file)
         {
-            using (FileStream fs = File.Create(directory))
+            using (FileStream fileStream = File.Create(directory))
             {
-                file.CopyTo(fs);
-                fs.Flush();
+                file.CopyTo(fileStream);
+                fileStream.Flush();
             }
         }
 

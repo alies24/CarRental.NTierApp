@@ -15,7 +15,7 @@ namespace WebAPI.Controllers
             _rentalService = rentalService;
         }
 
-        [HttpGet("getRental")]
+        [HttpGet("get")]
         public IActionResult GetRental(int rentalId)
         {
             var getRental = _rentalService.GetRental(rentalId);
@@ -30,7 +30,7 @@ namespace WebAPI.Controllers
             }
         }
 
-        [HttpGet("getAllRentals")]
+        [HttpGet("getAll")]
         public IActionResult GetAllRentals()
         {
             var getAllRentals = _rentalService.GetAllRentals();
@@ -44,7 +44,7 @@ namespace WebAPI.Controllers
                 return BadRequest(getAllRentals.Message);
             }
         }
-        [HttpPost("addRental")]
+        [HttpPost("add")]
         public IActionResult Add(Rental rental)
         {
             var addRental = _rentalService.Add(rental);
@@ -58,7 +58,7 @@ namespace WebAPI.Controllers
                 return BadRequest(addRental.Message);
             }
         }
-        [HttpDelete("deleteRental")]
+        [HttpDelete("delete")]
         public IActionResult Delete(Rental rental)
         {
             var deleteRental = _rentalService.Delete(rental);
@@ -72,7 +72,7 @@ namespace WebAPI.Controllers
                 return BadRequest(deleteRental.Message);
             }
         }
-        [HttpPut("updateRental")]
+        [HttpPut("update")]
         public IActionResult Update(Rental rental)
         {
             var updateRental = _rentalService.Update(rental);
@@ -86,5 +86,18 @@ namespace WebAPI.Controllers
                 return BadRequest(updateRental.Message);
             }
         }
+        [HttpGet("getRentalDetails")]
+        public IActionResult GetRentalDetails()
+        {
+            var getRentalDetails = _rentalService.GetRentalDetails();
+            if (getRentalDetails.Success == true)
+            {
+                return Ok(getRentalDetails);
+            }
+            else
+            {
+                return BadRequest(getRentalDetails.Message);
+            }
+        } 
     }
 }

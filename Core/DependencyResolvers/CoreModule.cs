@@ -13,7 +13,7 @@ namespace Core.DependencyResolvers
             serviceCollection.AddMemoryCache();
             serviceCollection.AddSingleton<ICacheManager, MemoryCacheManager>();
             serviceCollection.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            serviceCollection.AddSingleton<ITokenHelper, JWTHelper>();
+           // serviceCollection.AddSingleton<ITokenHelper, JWTHelper>();
            
         }
     }
